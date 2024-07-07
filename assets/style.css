@@ -1,19 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
-  background-color: #242333;
+  background-color: rgba(36, 35, 51, 1);
   color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  font-family: 'Lato', sans-serif;
-  margin: 0;
+}
+
+.inner {
+  background-color: rgba(36, 35, 51, 0.6);
+  padding: 30px;
+  border-radius: 5px;
+  max-width: 60rem;
+  max-height: 60rem;
+  padding: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-container {
@@ -24,7 +56,7 @@ body {
   background-color: #fff;
   border: 0;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1.4rem;
   margin-left: 10px;
   padding: 5px 15px 5px 15px;
   -moz-appearance: none;
@@ -112,4 +144,47 @@ p.text {
 
 p.text span {
   color: #6feaf6;
+}
+
+
+.button {
+  margin-top: 10px;
+  max-width: 20rem;
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: rgba(26, 177, 136, 0.8);
+  color: #fff;
+  transition: all.5s ease;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(26, 177, 136, 0.3);
+
+}
+
+.button:hover {
+  background: rgba(26, 177, 136, 0.4);
+}
+
+.button:active {
+  background: rgb(26, 177, 136);
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+#video1, #video2, #video3, #video4{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: -999;
+  object-fit: cover;
+  filter: brightness(5%);
 }
