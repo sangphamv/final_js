@@ -10,10 +10,8 @@
 </head>
 
 <body>
-    <video id="video1" src="./assets/video/doraemon.mp4" autoplay muted></video>
-    <video id="video2" src="./assets/video/demonslayder.mp4" style="display: none;" muted></video>
-    <video id="video3" src="./assets/video/attachontitan.mp4" style="display: none;" muted></video>
-    <video id="video4" src="./assets/video/onepiece.mp4" style="display: none;" muted></video>
+    <video autoplay muted loop id="video"></video>
+
     <div class="app">
 
         <div class="inner">
@@ -109,10 +107,27 @@
                 You have selected <span id="count">0</span> seats for a price of $
                 <span id="total">0</span>
             </p>
-            <button type="submit" class="button button-block" id="buynow">Buy Now</button>
+            <button type="submit" class="button button-block" id="myBtn">Buy Now</button>
         </div>
     </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Booking Success!!!</p>
+            <p id="billdetail1"></p>
+            <p id="billdetail2"></p>
+            <p id="billdetail3"></p>
+            <p id="billdetail4"></p>
+            <p id="billdetail5"></p>
+            <p id="billdetail6"></p>
+            <p id="billdetail7"></p>
+
+        </div>
+
+    </div>
     <script src="./assets/main.js"></script>
 </body>
 
