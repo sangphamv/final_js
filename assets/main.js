@@ -103,7 +103,7 @@ dates.forEach((date) => {
 const submitButton = document.getElementById("myBtn");
 
 submitButton.addEventListener("click", function () {
-  const selectedValue = movieSelect.value;
+  // const selectedValue = movieSelect.value;
   const selectedText = movieSelect.options[movieSelect.selectedIndex].text;
   const selectedTime = timePicker.value;
   const selectedDate = datePicker.value;
@@ -112,11 +112,15 @@ submitButton.addEventListener("click", function () {
   localStorage.setItem("selectedMovieText", selectedText);
   localStorage.setItem("selectedTime", selectedTime);
   localStorage.setItem("selectedDate", selectedDate);
-  
+
   const selectedMoviePrice = localStorage.getItem("selectedMoviePrice");
-  const selectedPostion = localStorage.getItem("selectedSeats");
+  const selectedPostion = localStorage
+    .getItem("selectedSeats")
+    .replace(/\[|\]/g, "");
   const selectedSeatsCount = localStorage.getItem("selectedSeatsCount");
-  const selectedSeatsCountTotal = localStorage.getItem("selectedSeatsCountTotal");
+  const selectedSeatsCountTotal = localStorage.getItem(
+    "selectedSeatsCountTotal"
+  );
 
   const billElement1 = document.getElementById("billdetail1");
   const billElement2 = document.getElementById("billdetail2");
@@ -129,11 +133,10 @@ submitButton.addEventListener("click", function () {
   let movieInfo = `Selected Movie: ${selectedText}\n`;
   let timeInfo = `Selected Time: ${selectedTime}\n`;
   let dateInfo = `Selected Date: ${selectedDate}\n`;
-  let movieInfovalue = `Seats: ${selectedSeatsCount}\n`;
-  let postionInfo = `Postion Seats: ${selectedPostion}\n`;
+  let movieInfovalue = `Number of Seats Booked: ${selectedSeatsCount}\n`;
+  let postionInfo = `Position of Seats Booked: ${selectedPostion}\n`;
   let ticketPrice = `Ticket Price: ${selectedMoviePrice} $`;
-  // let temp = selectedPostion.length * selectedMoviePrice;
-  let totalPrice = `Total: ${selectedSeatsCountTotal} $\n`;
+  let totalPrice = `Total Price: ${selectedSeatsCountTotal} $\n`;
 
   billElement1.textContent = movieInfo;
   billElement2.textContent = dateInfo;
@@ -208,7 +211,10 @@ function updateSelectedCount() {
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
   localStorage.setItem("selectedSeatsCount", selectedSeatsCount);
-  localStorage.setItem("selectedSeatsCountTotal", selectedSeatsCount * ticketPrice);
+  localStorage.setItem(
+    "selectedSeatsCountTotal",
+    selectedSeatsCount * ticketPrice
+  );
 }
 
 function populateUI() {
@@ -232,7 +238,6 @@ function populateUI() {
 updateSelectedCount();
 // *********************************************************************************
 // *********************************************************************************
-
 
 var modal = document.getElementById("myModal");
 
